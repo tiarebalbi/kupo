@@ -1,0 +1,11 @@
+{
+	"validation.inputs.error" : "Por favor verifique os campos abaixo!!!",
+	"validation.form.success" : "Cadastro realizado com sucesso",
+	"validation.input.required" : "Este campo é obrigatório",
+	"validation.input.email.invalid" : "E-Mail inválido",
+	"validation.form.processing" : "Processando os dados",
+	"validation.form.error" : "Verifique as informações inserida, ${erro}",
+	"validation.action.remove.success" : "Registro removido com sucesso." ,
+	"validation.input.login.size" : "O usuário de acesso deve ter entre 5 à 25 caracteres",
+	"validation.input.senha.size" : "A senha de acesso deve ter entre 5 à 25 caracteres"
+}

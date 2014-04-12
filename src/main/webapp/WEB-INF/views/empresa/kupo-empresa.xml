@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="empresa/index" extends="administracao">
+    	<put-attribute name="title" value="Gerenciamento de Funcionalidades do Sistema" />
+        <put-attribute name="content" value="/WEB-INF/views/empresa/index.jsp" />
+        <put-attribute name="module" value="js/module/empresa.index"></put-attribute>
+    </definition>
+    
+    <definition name="empresa/form" extends="administracao">
+    	<put-attribute name="title" value="Nova Funcionalidade" />
+        <put-attribute name="content" value="/WEB-INF/views/empresa/form.jsp" />
+        <put-attribute name="required" value="nao" />
+        <put-list-attribute name="plugins">
+        	<add-attribute value="plugins/kendo/js/kendo.all.min.js"></add-attribute>
+        	<add-attribute value="plugins/jquery-inputmask/jquery.inputmask.min.js"></add-attribute>
+        	<add-attribute value="js/custom/empresa.form.js"></add-attribute>
+        </put-list-attribute>
+    </definition>
+</tiles-definitions>

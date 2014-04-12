@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="clientes/index" extends="administracao">
+    	<put-attribute name="title" value="Relação de Clientes Cadastrados" />
+        <put-attribute name="content" value="/WEB-INF/views/cliente/index.jsp" />
+        <put-attribute name="module" value="js/module/cliente.index"></put-attribute>
+    </definition>
+    <definition name="clientes/visualizar" extends="administracao">
+    	<put-attribute name="title" value="Visualização de informações sobre o cliente" />
+        <put-attribute name="content" value="/WEB-INF/views/cliente/visualizar.jsp" />
+        <put-attribute name="module" value="js/module/cliente.visualizar"></put-attribute>
+    </definition>
+    <definition name="clientes/form" extends="administracao">
+    	<put-attribute name="title" value="Formulário de Cadastro" />
+        <put-attribute name="content" value="/WEB-INF/views/cliente/form.jsp" />
+        <put-attribute name="required" value="nao" />
+        <put-list-attribute name="plugins">
+        	<add-attribute value="plugins/kendo/js/kendo.all.min.js"></add-attribute>
+        </put-list-attribute>
+    </definition>
+</tiles-definitions>
