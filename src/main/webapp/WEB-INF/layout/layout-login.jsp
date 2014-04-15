@@ -26,7 +26,16 @@
 	<link href="${pathFile}css/responsive.css" rel="stylesheet" type="text/css"/>
 	<link href="${pathFile}css/custom-icon-set.css" rel="stylesheet" type="text/css"/>
 	<!-- END CSS TEMPLATE -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 	
+	  ga('create', 'UA-50066307-1', 'ec2-54-187-72-145.us-west-2.compute.amazonaws.com');
+	  ga('send', 'pageview');
+	
+	</script>
 </head>
 <body class="error-body no-top lazy" data-original="${pathFile}img/wallpaper.jpg" style="background: url(${pathFile}img/wallpaper.jpg) top center;">
 	<div class="container">

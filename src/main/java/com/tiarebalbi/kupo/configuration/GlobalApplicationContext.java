@@ -13,7 +13,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.context.annotation.Import;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
 
@@ -28,8 +27,7 @@ import org.springframework.core.io.ClassPathResource;
 @Configuration
 @EnableAspectJAutoProxy(proxyTargetClass=true)
 @EnableCaching
-@ComponentScan({"com.tiarebalbi.kupo.configuration", "com.tiarebalbi.kupo.commons", "com.tiarebalbi.kupo.configuration.security", "com.tiarebalbi.kupo.event","com.tiarebalbi.kupo.functions"})
-@Import(value={PersistenceApplicationContext.class, SchedulingApplicationContext.class})
+@ComponentScan({"com.tiarebalbi.kupo.configuration", "com.tiarebalbi.kupo.commons"})
 public class GlobalApplicationContext implements CachingConfigurer {
 
 	@Bean

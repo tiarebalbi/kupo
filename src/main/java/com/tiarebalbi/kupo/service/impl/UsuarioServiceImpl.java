@@ -55,11 +55,12 @@ public class UsuarioServiceImpl implements UsuarioService, ApplicationListener<B
 	    this.brokerAvailable.set(event.isBrokerAvailable());
 	}
 	
-	@Scheduled(fixedDelay=3000)
+	@Scheduled(fixedDelay=5000)
 	public void testing() {
 	    if (this.brokerAvailable.get()) {
-	    	LOGGER.info("Running..." + LocalTime.now());
-	        this.messagingTemplate.convertAndSend("/topic/greetings", "Testing....");
+	    	String string = "Trying to send a message for the topic..." + LocalTime.now().toString("HH:mm");
+			LOGGER.info(string);
+	        this.messagingTemplate.convertAndSend("/topic/greetings", string);
 	    }
 	}
 
