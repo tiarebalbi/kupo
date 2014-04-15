@@ -16,6 +16,7 @@ define(["jquery","backbone","internationalization","sockjs", "stomp"], function(
 	        	var username = frame.headers['user-name'];
 	        	$("#log").append("<br/>");
 	        	$("#log").append("User connected: " + username );
+	        	stompClient.send('/topic/greetings',{}, "New User connected: " + username);
 	        	
 	        	stompClient.subscribe("/topic/greetings", function(message) { // <-- Topic where I want to send the message
 	        		$("#log").append("<br/>");
