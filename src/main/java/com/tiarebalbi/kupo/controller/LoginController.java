@@ -73,9 +73,9 @@ public class LoginController {
 		ModelAndView view = new ModelAndView(REDIRECT_TO_INDEX);
 		
 		Usuario usuario = new Usuario();
-		usuario.setEmail("tiarebalbi@Me.com");
-		usuario.setLogin("tiare");
-		usuario.setSenha("481200");
+		usuario.setEmail("tiarebalbi@me.com");
+		usuario.setLogin("admin");
+		usuario.setSenha("admin");
 		usuario.setNome("Tiare");
 		usuario.setSobrenome("Balbi");
 		usuario.setVersion(new Integer(1));

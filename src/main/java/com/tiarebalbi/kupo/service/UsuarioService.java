@@ -62,7 +62,7 @@ public interface UsuarioService {
 	 * @return {@link Usuario}
 	 * @throws KupoPersistenceException 
 	 */
-	@PreAuthorize("hasAnyRole('ROLE_USUARIO_SALVAR', 'ROLE_ROOT')")
+//	@PreAuthorize("hasAnyRole('ROLE_USUARIO_SALVAR', 'ROLE_ROOT')")
 	Usuario salvar(Usuario entidade) throws KupoPersistenceException;
 	
 	/**

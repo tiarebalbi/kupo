@@ -2,11 +2,6 @@ define(["jquery","backbone","internationalization","sockjs", "stomp"], function(
 
 	var InicializacaoView = Backbone.View.extend({
 		el : $(".dynamic-content"),
-		events : {
-			// CRUD
-			"click .reload" : "findAll",
-			"click .new-company" : "novaEmpresa"
-		},
 		/**
 		 * Construtor da view
 		 */
@@ -15,17 +10,20 @@ define(["jquery","backbone","internationalization","sockjs", "stomp"], function(
 //			 Inicializando socket
 			var socket = new SockJS('/kupo/application'); // <!-- My endpoint
 	        var stompClient = Stomp.over(socket);
+	        
 	        stompClient.connect({}, function(frame) {
 	        	
 	        	var username = frame.headers['user-name'];
-	        	console.log("User connected: " + username);
+	        	$("#log").append("<br/>");
+	        	$("#log").append("User connected: " + username );
 	        	
 	        	stompClient.subscribe("/topic/greetings", function(message) { // <-- Topic where I want to send the message
-	                console.log("TOPIC:",message);
+	        		$("#log").append("<br/>");
+	                $("#log").append("Message: " + message);
 	            });
 	        	
 	        } , function(error) {
-	            console.log("STOMP protocol error " + error);
+	            $("#log").append("Error : " + message);
 	        });
 	        
 		

@@ -1,11 +1,20 @@
 package com.tiarebalbi.kupo.service.impl;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
+import org.joda.time.LocalTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationListener;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.messaging.core.MessageSendingOperations;
+import org.springframework.messaging.simp.broker.BrokerAvailabilityEvent;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.mysema.query.types.Predicate;
@@ -26,13 +35,33 @@ import com.tiarebalbi.kupo.service.UsuarioService;
  * 
  */
 @Service
-public class UsuarioServiceImpl implements UsuarioService {
+public class UsuarioServiceImpl implements UsuarioService, ApplicationListener<BrokerAvailabilityEvent> {
 
 	@Resource
 	private UsuarioRepository repository;
 	
 	@Autowired
 	private KupoMessage message;
+	
+	private AtomicBoolean brokerAvailable = new AtomicBoolean();
+
+	@Autowired
+	private MessageSendingOperations<String> messagingTemplate;
+	
+	private final Logger LOGGER = LoggerFactory.getLogger(getClass());
+
+	@Override
+	public void onApplicationEvent(BrokerAvailabilityEvent event) {
+	    this.brokerAvailable.set(event.isBrokerAvailable());
+	}
+	
+	@Scheduled(fixedDelay=3000)
+	public void testing() {
+	    if (this.brokerAvailable.get()) {
+	    	LOGGER.info("Running..." + LocalTime.now());
+	        this.messagingTemplate.convertAndSend("/topic/greetings", "Testing....");
+	    }
+	}
 
 	@Override
 	public Page<Usuario> buscarTodos(PageRequest page) {
