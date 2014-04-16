@@ -36,7 +36,7 @@ import com.tiarebalbi.kupo.configuration.security.KupoUserDetailsAuthenticationP
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled=true, jsr250Enabled=true, securedEnabled=true)
-@ComponentScan(basePackages="com.tiarebalbi.kupo.configuration.security")
+@ComponentScan(basePackages={"com.tiarebalbi.kupo.configuration.security", "com.tiarebalbi.kupo.service"})
 public class SecurityApplicationContext extends WebSecurityConfigurerAdapter {
 	
 	@Autowired

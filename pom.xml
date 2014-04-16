@@ -16,7 +16,7 @@
 		<jstl.version>1.2</jstl.version>
 		<servlet.version>3.1.0</servlet.version>
 		<!-- Spring -->
-		<spring-framework.version>4.0.1.RELEASE</spring-framework.version>
+		<spring-framework.version>4.0.3.RELEASE</spring-framework.version>
 		<spring.integration.version>3.0.0.RELEASE</spring.integration.version>
 
 		<!-- Hibernate / JPA -->
@@ -161,7 +161,7 @@
 		<dependency>
 			<groupId>org.projectreactor</groupId>
 			<artifactId>reactor-tcp</artifactId>
-			<version>1.0.0.RELEASE</version>
+			<version>1.0.1.RELEASE</version>
 		</dependency>
 
 		<!-- Spring Security -->

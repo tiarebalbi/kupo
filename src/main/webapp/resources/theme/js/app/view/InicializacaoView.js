@@ -12,6 +12,10 @@ define(["jquery","backbone","internationalization","sockjs", "stomp"], function(
 	        var stompClient = Stomp.over(socket);
 	        
 	        stompClient.connect({}, function(frame) {
+	        	var username = frame.headers['user-name'];
+	        	stompClient.send('/topic/greetings',{}, "Disconnect: " + username);
+	        });
+	        stompClient.connect({}, function(frame) {
 	        	
 	        	var username = frame.headers['user-name'];
 	        	$("#log").append("<br/>");
@@ -20,7 +24,7 @@ define(["jquery","backbone","internationalization","sockjs", "stomp"], function(
 	        	
 	        	stompClient.subscribe("/topic/greetings", function(message) { // <-- Topic where I want to send the message
 	        		$("#log").append("<br/>");
-	                $("#log").append("Message: " + message);
+	                $("#log").append("Message: " + message.body);
 	            });
 	        	
 	        } , function(error) {

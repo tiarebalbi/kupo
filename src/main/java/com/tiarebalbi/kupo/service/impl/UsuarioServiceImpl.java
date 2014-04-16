@@ -13,6 +13,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.messaging.core.MessageSendingOperations;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.broker.BrokerAvailabilityEvent;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -48,6 +49,9 @@ public class UsuarioServiceImpl implements UsuarioService, ApplicationListener<B
 	@Autowired
 	private MessageSendingOperations<String> messagingTemplate;
 	
+	@Autowired
+	private SimpMessagingTemplate template;
+	
 	private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
 	@Override
@@ -58,12 +62,12 @@ public class UsuarioServiceImpl implements UsuarioService, ApplicationListener<B
 	@Scheduled(fixedDelay=5000)
 	public void testing() {
 	    if (this.brokerAvailable.get()) {
-	    	String string = "Trying to send a message for the topic..." + LocalTime.now().toString("HH:mm");
+	    	String string = "Trying to send using MessageSendingOperations, message for the topic..." + LocalTime.now().toString("HH:mm:ss");
 			LOGGER.info(string);
 	        this.messagingTemplate.convertAndSend("/topic/greetings", string);
 	    }
 	}
-
+	
 	@Override
 	public Page<Usuario> buscarTodos(PageRequest page) {
 		return this.repository.findAll(page);
