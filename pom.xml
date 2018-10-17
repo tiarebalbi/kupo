@@ -93,7 +93,7 @@
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-servlet</artifactId>
-			<version>3.0.3</version>
+			<version>3.0.8</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
