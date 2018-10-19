@@ -17,7 +17,7 @@
 		<servlet.version>4.0.1</servlet.version>
 		<!-- Spring -->
 		<spring-framework.version>4.0.3.RELEASE</spring-framework.version>
-		<spring.integration.version>3.0.0.RELEASE</spring.integration.version>
+		<spring.integration.version>5.0.9.RELEASE</spring.integration.version>
 
 		<!-- Hibernate / JPA -->
 		<hibernate.version>5.3.7.Final</hibernate.version>
